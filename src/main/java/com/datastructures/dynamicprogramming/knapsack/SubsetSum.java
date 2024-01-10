@@ -1,12 +1,19 @@
-package com.datastructures.dynamicprogramming;
+package com.datastructures.dynamicprogramming.knapsack;
 
-public class EqualSumPartition {
+public class SubsetSum {
 
     public static boolean subsetSumBottomUp(int[] set, int sum, int n)
     {
         boolean dp[][] = new boolean[n+1][sum+1];
 
-        for(int i=0;i<=n;i++)
+        dp[0][0] = true;
+
+        for(int i=1;i<=n;i++)
+        {
+            dp[0][i] = false;
+        }
+
+        for(int i=1;i<=n;i++)
         {
             for(int j=0;j<=sum;j++)
             {
@@ -31,30 +38,32 @@ public class EqualSumPartition {
         return dp[n][sum];
     }
 
-    public static boolean equalSum(int arr[], int n)
+    public static boolean subsetSumRecurssion(int[] set, int sum, int n)
     {
-        int sum = 0;
-        for(int i=0;i<n;i++)
+        if(sum==0)
         {
-            sum = sum+arr[i];
+            return true;
         }
-
-        if(sum%2!=0)
+        if(n==0)
         {
             return false;
         }
+        if(set[n-1]<=sum)
+        {
+            return subsetSumRecurssion(set, sum-set[n-1], n-1) || subsetSumRecurssion(set, sum, n-1);
+        }
         else
         {
-            return subsetSumBottomUp(arr, sum/2, n);
+            return subsetSumRecurssion(set, sum, n-1);
         }
-
     }
 
     public static void main(String args[])
     {
-        int arr[] = {1, 5, 3, 4 };
-        int n = arr.length;
-        System.out.println(equalSum(arr, n));
+        int set[] = { 1, 5, 3 , 4 };
+        int sum = 9;
+        int n = set.length;
+        System.out.println(subsetSumBottomUp(set, sum, n));
     }
 
 }

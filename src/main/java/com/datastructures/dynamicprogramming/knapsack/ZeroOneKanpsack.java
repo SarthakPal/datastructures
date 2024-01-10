@@ -1,4 +1,4 @@
-package com.datastructures.dynamicprogramming;
+package com.datastructures.dynamicprogramming.knapsack;
 
 public class ZeroOneKanpsack {
 

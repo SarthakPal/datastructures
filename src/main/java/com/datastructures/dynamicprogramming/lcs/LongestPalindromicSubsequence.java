@@ -1,9 +1,6 @@
-package com.datastructures.dynamicprogramming;
-
-public class ShortestCommonSupersequence {
-
+package com.datastructures.dynamicprogramming.lcs;
+public class LongestPalindromicSubsequence {
     static int dp[][] = new int[1001][1001];
-
     public static int longestCommonSubsequenceUsingTopDown(String a, String b, int m , int n)
     {
         for(int i=0;i<=m;i++)
@@ -32,10 +29,9 @@ public class ShortestCommonSupersequence {
     }
     public static void main(String args[])
     {
-        String a = "abcd";
-        String b = "abcdef";
-        int length = longestCommonSubsequenceUsingTopDown(a, b, a.length(), b.length());
-        System.out.println((a.length()-length) + (b.length()-length) + length);
+        String a = "agbcba";
+        StringBuffer b = new StringBuffer(a);
+        System.out.println(longestCommonSubsequenceUsingTopDown(a, b.reverse().toString(), a.length(), b.length()));
     }
 
 }

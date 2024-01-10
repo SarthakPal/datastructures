@@ -1,4 +1,4 @@
-package com.datastructures.dynamicprogramming;
+package com.datastructures.dynamicprogramming.lcs;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ public class LongestCommonSubsequence {
 
     public static int longestCommonSubsequenceUsingTopDown(String a, String b, int m , int n)
     {
-        for(int i=0;i<=m;i++)
+        for(int i=1;i<=m;i++)
         {
             for(int j=0;j<=n;j++)
             {
@@ -18,15 +18,15 @@ public class LongestCommonSubsequence {
                 }
                 else if(j==0)
                 {
-                    dp[i][j]=0;
+                    dp[i][j]=1;
                 }
                 else if(a.charAt(i-1)==b.charAt(j-1))
                 {
-                    dp[i][j] = 1+dp[i-1][j-1];
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
                 }
                 else
                 {
-                    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
+                    dp[i][j] = dp[i-1][j];
                 }
             }
         }
@@ -76,8 +76,9 @@ public class LongestCommonSubsequence {
 
     public static void main(String args[])
     {
-        String a = "abcd";
-        String b = "abcdef";
+        String a = "rabbbit";
+        String b = "rabbit";
+        dp[0][0] = 1;
         System.out.println(longestCommonSubsequenceUsingTopDown(a, b, a.length(), b.length()));
     }
 

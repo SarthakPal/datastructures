@@ -1,5 +1,6 @@
-package com.datastructures.dynamicprogramming;
-public class MinDeletionsToMakeStringPalindrome {
+package com.datastructures.dynamicprogramming.lcs;
+
+public class MinInsertionsForStringAtoB {
     static int dp[][] = new int[1001][1001];
     public static int longestCommonSubsequenceUsingTopDown(String a, String b, int m , int n)
     {
@@ -27,13 +28,13 @@ public class MinDeletionsToMakeStringPalindrome {
         }
         return dp[m][n];
     }
-
     public static void main(String args[])
     {
-        String a = "agbcba";
-        StringBuffer b = new StringBuffer(a);
-        int length = longestCommonSubsequenceUsingTopDown(a, b.reverse().toString(), a.length(), b.length());
-        System.out.println(a.length() - length);
+        String a = "abcd";
+        String b = "ebc";
+        int length = longestCommonSubsequenceUsingTopDown(a, b, a.length(), b.length());
+        System.out.println("Insertions : "+(a.length()-length));
+        System.out.println("Deletions : "+(b.length()-length));
     }
 
 }

@@ -1,6 +1,6 @@
-package com.datastructures.dynamicprogramming;
+package com.datastructures.dynamicprogramming.knapsack;
 
-public class CountSubsetWithGivenSum {
+public class CountSubsetWithGivenDifference {
 
     public static int countSubset(int arr[], int sum)
     {
@@ -41,10 +41,22 @@ public class CountSubsetWithGivenSum {
 
     public static void main(String args[])
     {
-        int arr[] = {1, 3, 5, 6};
-        int sum = 6;
+        int arr[] = {1, 2, 3, 1, 2};
+        int diff = 1;
 
-        System.out.println(countSubset(arr, sum));
+        int totalSum = 0;
+
+        for(int i=0;i<arr.length;i++)
+        {
+            totalSum+=arr[i];
+        }
+
+        // We have given s1-s2 = diff and we know s1+s2 = totalSum. Using these 2 equations we get s1 = (totalSum+diff)/2.
+        // Now we have to count the no. of subsets where the sum is s1.
+
+        int sum1 = (totalSum+diff)/2;
+
+        System.out.println(countSubset(arr, sum1));
 
     }
 
