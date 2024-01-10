@@ -26,14 +26,14 @@ public class ScrambledString {
         }
         for(int k=1;k<=a.length()-1;k++)
         {
-            if(solveUsingRecurrsion(a.substring(0,k), b.substring(a.length()-k)) &&
-                    solveUsingRecurrsion(a.substring(k), b.substring(0,a.length()-k)))
+            if(solveUsingMemoization(a.substring(0,k), b.substring(a.length()-k)) &&
+                    solveUsingMemoization(a.substring(k), b.substring(0,a.length()-k)))
             {
                 flag = true;
                 break;
             }
-            else if(solveUsingRecurrsion(a.substring(0,k), b.substring(0,k)) &&
-                    solveUsingRecurrsion(a.substring(k), b.substring(k)))
+            else if(solveUsingMemoization(a.substring(0,k), b.substring(0,k)) &&
+                    solveUsingMemoization(a.substring(k), b.substring(k)))
             {
                 flag = true;
                 break;
