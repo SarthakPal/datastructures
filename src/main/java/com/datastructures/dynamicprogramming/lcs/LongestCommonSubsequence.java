@@ -18,15 +18,15 @@ public class LongestCommonSubsequence {
                 }
                 else if(j==0)
                 {
-                    dp[i][j]=1;
+                    dp[i][j]=0;
                 }
                 else if(a.charAt(i-1)==b.charAt(j-1))
                 {
-                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+                    dp[i][j] = 1+dp[i-1][j-1];
                 }
                 else
                 {
-                    dp[i][j] = dp[i-1][j];
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
                 }
             }
         }
@@ -76,8 +76,8 @@ public class LongestCommonSubsequence {
 
     public static void main(String args[])
     {
-        String a = "rabbbit";
-        String b = "rabbit";
+        String a = "AGGTAB";
+        String b = "GXTXAYB";
         dp[0][0] = 1;
         System.out.println(longestCommonSubsequenceUsingTopDown(a, b, a.length(), b.length()));
     }
