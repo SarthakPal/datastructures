@@ -1,0 +1,47 @@
+//package com.datastructures.arrays;
+//
+//import java.util.ArrayList;
+//import java.util.Collections;
+//
+//
+//public class MinSwapsToSort {
+//
+//        public int solve(ArrayList<Integer> A) {
+//
+//            int size = A.size();
+//
+//            ArrayList<Pair<Integer, Integer>> arr = new ArrayList<>(size);
+//
+//            for(int i=0;i<size;i++)
+//            {
+//                arr.add(new Pair<>(A.get(i), i));
+//            }
+//
+//            Collections.sort(arr, new Comparator<Pair<Integer, Integer>>(){
+//                public int compare(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2)
+//                {
+//                    return p1.getKey().compareTo(p2.getKey());
+//                }
+//            });
+//
+//            int count=0;
+//
+//            for(int i=0;i<size;i++)
+//            {
+//                if(arr.get(i).getValue()==i)
+//                {
+//                    continue;
+//                }
+//                else
+//                {
+//                    count++;
+//                    Collections.swap(arr, i, arr.get(i).getValue());
+//                    i--;
+//                }
+//            }
+//            return count;
+//        }
+//}
+//
+//
+//
