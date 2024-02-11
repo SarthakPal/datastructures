@@ -8,12 +8,7 @@ public class SubsetSum {
 
         dp[0][0] = true;
 
-        for(int i=1;i<=n;i++)
-        {
-            dp[0][i] = false;
-        }
-
-        for(int i=1;i<=n;i++)
+        for(int i=0;i<=n;i++)
         {
             for(int j=0;j<=sum;j++)
             {
