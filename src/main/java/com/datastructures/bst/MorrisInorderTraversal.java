@@ -1,8 +1,9 @@
 package com.datastructures.bst;
 
+
 public class MorrisInorderTraversal {
 
-    public void inorder(TreeNode root)
+    public static void inorder(TreeNode root)
     {
         TreeNode curr = root;
 
@@ -32,6 +33,15 @@ public class MorrisInorderTraversal {
                 }
             }
         }
+    }
+
+    public static void main(String args[])
+    {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(4);
+        inorder(root);
     }
 
 }
