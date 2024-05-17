@@ -1,6 +1,4 @@
-package com.datastructures.bst;
-
-import com.sun.source.tree.Tree;
+package com.datastructures.BinarySearchTree;
 
 class TreeNode
 {

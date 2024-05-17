@@ -1,4 +1,4 @@
-package com.datastructures.bst;
+package com.datastructures.BinarySearchTree;
 
 public class FlattenBinaryTree {
 
