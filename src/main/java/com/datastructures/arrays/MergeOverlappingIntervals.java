@@ -1,36 +1,45 @@
 package com.datastructures.arrays;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MergeOverlappingIntervals {
 
-    public int[][] solve(int[][] intervals)
-    {
-        if(intervals.length<=1)
-        {
-            return intervals;
-        }
-
-        List<int[]> result = new ArrayList<>();
-
-        int[] newInterval = intervals[0];
-        result.add(newInterval);
-
-        for(int[] interval : intervals)
-        {
-            if(interval[0]<=newInterval[1])
-            {
-                newInterval[1] = Math.max(interval[1], newInterval[1]);
+    public static List<List<Integer>> mergeOverlappingIntervals(int[][] arr) {
+        int n = arr.length; // size of the array
+        //sort the given intervals:
+        Arrays.sort(arr, new Comparator<int[]>() {
+            public int compare(int[] a, int[] b) {
+                return a[0] - b[0];
             }
+        });
+
+        List<List<Integer>> ans = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            // if the current interval does not
+            // lie in the last interval:
+            if (ans.isEmpty() || arr[i][0] > ans.get(ans.size() - 1).get(1)) {
+                ans.add(Arrays.asList(arr[i][0], arr[i][1]));
+            }
+            // if the current interval
+            // lies in the last interval:
             else {
-                newInterval = interval;
-                result.add(newInterval);
+                ans.get(ans.size() - 1).set(1,
+                        Math.max(ans.get(ans.size() - 1).get(1), arr[i][1]));
             }
         }
-
-        return result.toArray(new int[result.size()][]);
-
+        return ans;
     }
 
+    public static void main(String[] args) {
+        int[][] arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+        List<List<Integer>> ans = mergeOverlappingIntervals(arr);
+        System.out.print("The merged intervals are: \n");
+        for (List<Integer> it : ans) {
+            System.out.print("[" + it.get(0) + ", " + it.get(1) + "] ");
+        }
+        System.out.println();
+    }
 }
+
+
