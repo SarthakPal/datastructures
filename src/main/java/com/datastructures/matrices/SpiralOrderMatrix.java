@@ -1,4 +1,4 @@
-package com.datastructures.arrays;
+package com.datastructures.matrices;
 
 public class SpiralOrderMatrix {
         public int[][] generateMatrix(int A) {
