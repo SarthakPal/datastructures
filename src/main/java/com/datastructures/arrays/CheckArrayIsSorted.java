@@ -1,12 +1,12 @@
 package com.datastructures.arrays;
 
-/*Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.
+/*Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some
+ number of positions (including zero). Otherwise, return false.
 
         There may be duplicates in the original array.
 
-        Note: An array A rotated by x positions results in an array B of the same length such that A[i] == B[(i+x) % A.length], where % is the modulo operation.
-
-
+        Note: An array A rotated by x positions results in an array B of the same length such that
+        A[i] == B[(i+x) % A.length], where % is the modulo operation.
 
         Example 1:
 
@@ -25,6 +25,7 @@ package com.datastructures.arrays;
         Output: true
         Explanation: [1,2,3] is the original sorted array.
         You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.*/
+
 public class CheckArrayIsSorted {
 
     public boolean check(int[] nums) {
@@ -40,6 +41,5 @@ public class CheckArrayIsSorted {
         }
         return count <= 1;
     }
-
 
 }

@@ -1,7 +1,6 @@
 package com.datastructures.arrays;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 public class LongestConsecutiveSequence {
@@ -45,6 +44,63 @@ public class LongestConsecutiveSequence {
         }
 
         return longestLength;
+    }
+
+    // Time Complexity: O(NlogN) + O(N), N = size of the given array.
+    // Reason: O(NlogN) for sorting the array. To find the longest sequence, we are using a loop that results in O(N).
+    // Space Complexity: O(1), as we are not using any extra space to solve this problem.
+    public int findLongestConsecutive(int nums[])
+    {
+        int n = nums.length;
+        Arrays.sort(nums);
+        int last = Integer.MAX_VALUE;
+        int longest = 1;
+        int count = 1;
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]-1==last)
+            {
+                count++;
+                last = nums[i];
+            }
+            else {
+                count = 1;
+                last = nums[i];
+            }
+            longest = Math.max(longest, count);
+        }
+        return longest;
+    }
+
+    public int longesstConsecutive(int nums[])
+    {
+        int n = nums.length;
+
+        int longest = 1;
+
+        Set<Integer> set = new HashSet<>();
+
+        for(int i=0;i<n;i++)
+        {
+            set.add(nums[i]);
+        }
+
+        for(Integer i:set)
+        {
+            if(!set.contains(i-1))
+            {
+                int count = 1;
+                int temp = i+1;
+                while(set.contains(temp))
+                {
+                    count++;
+                    temp++;
+                }
+                longest = Math.max(longest,count);
+            }
+        }
+
+        return longest;
     }
 
 }
