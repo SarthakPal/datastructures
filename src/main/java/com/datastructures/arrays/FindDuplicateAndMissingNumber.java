@@ -21,7 +21,7 @@ public class FindDuplicateAndMissingNumber {
         {
             if(nums[i]>0)
             {
-                System.out.println("Repeated No : "+ (i+1));
+                System.out.println("Missing No : "+ (i+1));
             }
         }
 

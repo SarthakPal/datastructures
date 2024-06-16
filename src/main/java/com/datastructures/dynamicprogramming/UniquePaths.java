@@ -1,4 +1,4 @@
-package com.datastructures.arrays;
+package com.datastructures.dynamicprogramming;
 public class UniquePaths {
 
         public int uniquePaths(int m, int n) {

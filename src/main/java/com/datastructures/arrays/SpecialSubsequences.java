@@ -2,7 +2,7 @@ package com.datastructures.arrays;
 
 public class SpecialSubsequences {
 
-        public int solve(String str) {
+        public static int solve(String str) {
             int mod=1000000007;
             int count=0;
             int ans=0;
@@ -19,6 +19,13 @@ public class SpecialSubsequences {
             }
             return ans%mod;
         }
+
+        public static void main(String args[])
+        {
+            String s = "AAGG";
+            System.out.println(solve(s));
+        }
+
 }
 
 
