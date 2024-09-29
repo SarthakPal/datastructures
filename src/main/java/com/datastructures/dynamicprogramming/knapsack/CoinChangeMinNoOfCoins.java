@@ -17,7 +17,7 @@ public class CoinChangeMinNoOfCoins {
             dp[i][0] = 0;
         }
 
-        for(int j=1;j<=sum;j++)
+        /*for(int j=1;j<=sum;j++)
         {
             if(j%coins[1]==0)
             {
@@ -27,9 +27,9 @@ public class CoinChangeMinNoOfCoins {
             {
                 dp[1][j] = Integer.MAX_VALUE-1;
             }
-        }
+        }*/
 
-        for(int i=2;i<=n;i++)
+        for(int i=1;i<=n;i++)
         {
             for(int j=1;j<=sum;j++)
             {

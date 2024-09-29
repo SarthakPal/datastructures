@@ -63,10 +63,10 @@ public class ZeroOneKanpsack {
         }
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int profit[] = new int[] { 11, 12, 13, 14};
-        int weight[] = new int[] { 1, 2, 3, 4};
+        int[] profit = new int[] { 11, 12, 13, 14};
+        int[] weight = new int[] { 1, 2, 3, 4};
         int W = 6;
         int n = profit.length;
         int[][] dp = new int[n+1][W+1];

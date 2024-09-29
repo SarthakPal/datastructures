@@ -10,9 +10,6 @@ public class CountSubsetWithGivenSum {
 
         dp[0][0] = 1;
 
-        for(int i = 1; i <= n; i++)
-            dp[0][i] = 0;
-
         for(int i=1;i<=n;i++)
         {
             for(int j=0;j<=sum;j++)

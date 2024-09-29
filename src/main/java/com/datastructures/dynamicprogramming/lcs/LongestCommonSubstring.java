@@ -32,8 +32,8 @@ public class LongestCommonSubstring {
     }
     public static void main(String args[])
     {
-        String a = "abcd";
-        String b = "abcdef";
+        String a = "acb";
+        String b = "bac";
 
         int m = a.length();
         int n = b.length();

@@ -31,7 +31,7 @@ public class MinInsertionsForStringAtoB {
     public static void main(String args[])
     {
         String a = "abcd";
-        String b = "ebc";
+        String b = "dbc";
         int length = longestCommonSubsequenceUsingTopDown(a, b, a.length(), b.length());
         System.out.println("Insertions : "+(a.length()-length));
         System.out.println("Deletions : "+(b.length()-length));

@@ -8,20 +8,19 @@ public class SubsetSum {
 
         dp[0][0] = true;
 
-        for(int i=0;i<=n;i++)
-        {
-            for(int j=0;j<=sum;j++)
-            {
-                if(i==0)
-                {
-                    dp[i][j] = false;
-                }
-                else if(j==0)
-                {
-                    dp[i][j] = true;
-                }
+        for (int i = 0; i <= n; i++)
+            dp[i][0] = true;
 
-                else if(set[i-1]<=j)
+        for(int j=1;j<=sum;j++)
+        {
+            dp[0][j] = false;
+        }
+
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=sum;j++)
+            {
+                if(set[i-1]<=j)
                 {
                     dp[i][j] =  dp[i-1][j-set[i-1]] || dp[i-1][j];
                 }
@@ -92,7 +91,7 @@ public class SubsetSum {
         int set[] = { 1, 5, 3 , 4 };
         int sum = 9;
         int n = set.length;
-        System.out.println(subsetSumRecurssionMemoization(set, sum, n));
+        System.out.println(subsetSumBottomUp(set, sum, n));
 
     }
 

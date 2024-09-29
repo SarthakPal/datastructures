@@ -80,7 +80,7 @@ public class PallindromePartitioning {
 
     public static void main(String args[])
     {
-        String s = "nitik";
+        String s = "abc";
         for(int[] t:dp)
         {
             Arrays.fill(t,-1);
