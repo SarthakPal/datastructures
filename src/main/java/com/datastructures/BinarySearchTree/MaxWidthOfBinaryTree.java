@@ -26,23 +26,24 @@ public class MaxWidthOfBinaryTree {
         queue.add(new Pair(root, 0));
         while(!queue.isEmpty())
         {
-            int min = queue.peek().num;
-            int first=0, last = 0;
             int size = queue.size();
-            for(int i=0;i<size;i++)
+            int min = queue.peek().num;
+            int first = 0;
+            int last = 0;
+            for(int i=1;i<=size;i++)
             {
-                Pair pair = queue.peek();
+                int curr = queue.peek().num - min;
+                TreeNode node = queue.peek().node;
                 queue.poll();
-                int curr = pair.num - min;
-                if(i==0) first = curr;
-                if(i== size-1) last = curr;
-                if(pair.node.left!=null)
+                if(i==1) first = curr;
+                if(i==size) last = curr;
+                if(node.left!=null)
                 {
-                    queue.add(new Pair(pair.node.left, curr*2-1));
+                    queue.offer(new Pair(node.left, curr*2+1));
                 }
-                if(pair.node.right!=null)
+                if(node.right!=null)
                 {
-                    queue.add(new Pair(pair.node.right, curr*2+1));
+                    queue.offer(new Pair(node.right, curr*2+1));
                 }
             }
             ans = Math.max(ans, last-first+1);

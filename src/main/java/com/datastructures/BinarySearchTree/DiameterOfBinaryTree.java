@@ -18,44 +18,42 @@ import java.util.Stack;
     }
 
 }*/
+
+// Height of BT is max no of levels including root node.
+// Diameter of BT is max of sum of ( leftHeight+rightHeight ) from all the nodes
 public class DiameterOfBinaryTree {
 
-    Map<TreeNode, Integer> mp = new HashMap<>();
-    Stack<TreeNode> st = new Stack<>();
-    public int solve(TreeNode root)
+    public int height(TreeNode root, int[] diameter)
     {
-        int diameter = 0;
-
-        if(root!=null)
+        if(root==null)
         {
-            st.push(root);
+            return 0;
         }
 
-        while(!st.isEmpty())
-        {
-            TreeNode node = st.peek();
-            if(node.left!=null && !mp.containsKey(node.left))
-            {
-                st.push(node.left);
-            }
-            else if(node.right!=null && !mp.containsKey(node.right))
-            {
-                st.push(node.right);
-            }
-            else {
-                st.pop();
+        int left = height(root.left, diameter);
+        int right = height(root.right, diameter);
 
-                int leftDepth = mp.getOrDefault(node.left, 0);
-                int rightDepth = mp.getOrDefault(node.right, 0);
+        diameter[0] = Math.max(diameter[0], left+right);
 
-                mp.put(node, 1+Math.max(leftDepth,rightDepth));
-
-                diameter = Math.max(diameter, leftDepth+rightDepth);
-            }
-        }
-
-        return diameter;
+        return Math.max(left,right)+1;
 
     }
+
+    public int diameterOfBinaryTree(TreeNode root) {
+
+        if(root==null)
+        {
+            return 0;
+        }
+
+        int[] diameter = new int[1];
+        diameter[0] = -1;
+
+        height(root, diameter);
+
+        return diameter[0];
+
+    }
+
 
 }
