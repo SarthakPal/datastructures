@@ -20,9 +20,8 @@ public class AllNodesDistanceK {
         return visited.get(val)!=null ? true : false;
     }
 
-
     // suppose the tree is like this
-    // root is 3 and then it has left 5 ad right 1
+    // root is 3 and then it has left 5 and right 1
     // left 5 has 6 left and 2 right.
     // right 1 has left null  right 4
     // right 2 has left 7 right 4

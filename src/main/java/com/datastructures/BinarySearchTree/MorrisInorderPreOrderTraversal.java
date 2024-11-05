@@ -1,7 +1,7 @@
 package com.datastructures.BinarySearchTree;
 
 
-public class MorrisInorderTraversal {
+public class MorrisInorderPreOrderTraversal {
 
     public static void inorder(TreeNode root)
     {
@@ -29,6 +29,38 @@ public class MorrisInorderTraversal {
                 {
                     prev.right=null;
                     System.out.println(curr.val);
+                    curr = curr.right;
+                }
+            }
+        }
+    }
+
+    public static void preorder(TreeNode root)
+    {
+        TreeNode curr = root;
+
+        while(curr!=null)
+        {
+            if(curr.left==null)
+            {
+                System.out.println(curr.val);
+                curr = curr.right;
+            }
+            else {
+                TreeNode prev = curr.left;
+                while(prev.right!=null && prev.right!=curr)
+                {
+                    prev = prev.right;
+                }
+                if(prev.right==null)
+                {
+                    System.out.println(curr.val);
+                    prev.right=curr;
+                    curr = curr.left;
+                }
+                else
+                {
+                    prev.right=null;
                     curr = curr.right;
                 }
             }

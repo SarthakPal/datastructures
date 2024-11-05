@@ -6,7 +6,7 @@ public class VerticalOrderTraversal {
 
     Map<Integer, ArrayList<Integer>> mp = new TreeMap<>();
 
-    public ArrayList<ArrayList<Integer>> verticalOrderTraversalUtil(TreeNode node) {
+    public List<List<Integer>> verticalOrderTraversalUtil(TreeNode node) {
 
         if(node==null)
         {
@@ -46,7 +46,7 @@ public class VerticalOrderTraversal {
             }
         }
 
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
 
         for (Map.Entry<Integer, ArrayList<Integer>> entry : mp.entrySet())
         {
@@ -57,13 +57,40 @@ public class VerticalOrderTraversal {
 
     }
 
-    public ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode node)
+    public List<List<Integer>> verticalOrderTraversal(TreeNode node)
     {
         if(node==null)
         {
             return null;
         }
         return verticalOrderTraversalUtil(node);
+    }
+
+    public static TreeNode insertLevelOrder(int[] arr, int i) {
+        TreeNode root = null;
+        if (i < arr.length) {
+            root = new TreeNode(arr[i]);
+            root.left = insertLevelOrder(arr, 2 * i + 1);
+            root.right = insertLevelOrder(arr, 2 * i + 2);
+        }
+        return root;
+    }
+
+    public static void main(String[] args) {
+        // Example input: [1,2,3,4,6,5,7]
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+
+        // Create the binary tree from the array
+        TreeNode root = insertLevelOrder(arr, 0);
+
+        // Create the solution instance and call verticalTraversal
+        VerticalOrderTraversal solution = new VerticalOrderTraversal();
+        List<List<Integer>> result = solution.verticalOrderTraversal(root);
+
+        // Print the result
+        for (List<Integer> list : result) {
+            System.out.println(list);
+        }
     }
 
 }
