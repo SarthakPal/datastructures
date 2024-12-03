@@ -23,7 +23,7 @@ public class BSTIterator {
     public int next()
     {
         TreeNode node = stack.pop();
-        pushAll(node);
+        pushAll(node.right);
         return node.val;
     }
 

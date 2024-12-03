@@ -44,7 +44,7 @@ public class CheckIfTreeIsBalanced {
         int lh = findHeight(root.left);
         int rh = findHeight(root.right);
 
-        if (lh == 1 || rh == -1) {
+        if (lh == -1 || rh == -1) {
             return -1;
         }
 
