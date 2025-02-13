@@ -1,5 +1,7 @@
 package com.datastructures.matrices;
 
+// Problem Statement: Given a matrix if an element in the matrix is 0 then you will have to set its entire column
+// and row to 0 and then return the matrix.
 public class SetMatrixZeroes {
 
     // we will traverse from (0,0) to (n,m) and if we find zero then we will make the first cell of that

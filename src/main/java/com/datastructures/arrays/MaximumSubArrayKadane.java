@@ -54,7 +54,7 @@ public class MaximumSubArrayKadane {
 
     public static void main(String args[])
     {
-        int nums[] = {5, -2, 4, -3};
+        int nums[] = {5, -15, 25, 35};
         MaximumSubArrayKadane maximumSubArrayKadane = new MaximumSubArrayKadane();
         maximumSubArrayKadane.maxSubArrayPrintElements(nums);
 

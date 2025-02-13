@@ -18,8 +18,8 @@ public class NextPermutation {
 
     // first we will start iterating over the array and try to find out the peak index where the
     // array element is greater than the prev index array element.
-    // if the array is in desc order like 5,4,3,2 we just only need to reverse it and here the peak index
-    // will remain 1.
+    // if the array is in desc order like 5,4,3,2,1 we just only need to reverse it and here the peak index
+    // will remain -1.
     // now if the array is 1, 2, 5, 1 we will find the peak index and first swap it with prev index element
     // and reverse the remaining elements after it because the rem elements will be in desc order
     // but if the array is 1, 2, 5, 4, 3 we will find the peak index and then we cannot just swap
@@ -60,7 +60,8 @@ public class NextPermutation {
 
     public static void main(String args[])
     {
-        int arr[] = {1, 5, 8, 4, 7, 6, 5, 3, 1};
+        //int arr[] = {1, 5, 8, 4, 7, 6, 5, 3, 1};
+        int arr[] = {1, 2, 5, 1};
         nextPermutation(arr);
         for(int i=0;i<arr.length;i++)
         {

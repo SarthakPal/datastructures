@@ -27,8 +27,8 @@ class NodeInfo
 
     public NodeInfo(int minNode, int maxNode, int maxSize)
     {
-        this.maxNode = maxNode;
         this.minNode = minNode;
+        this.maxNode = maxNode;
         this.maxSize = maxSize;
     }
 

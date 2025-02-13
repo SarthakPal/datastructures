@@ -43,7 +43,7 @@ public class MaxWidthOfBinaryTree {
                 }
                 if(node.right!=null)
                 {
-                    queue.offer(new Pair(node.right, curr*2+1));
+                    queue.offer(new Pair(node.right, curr*2+2));
                 }
             }
             ans = Math.max(ans, last-first+1);

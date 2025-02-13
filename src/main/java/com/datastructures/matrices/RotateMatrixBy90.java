@@ -7,6 +7,7 @@ public class RotateMatrixBy90 {
         int rows = mat.length;
         int cols = mat[0].length;
 
+        // transpose of matrix : convert rows to column and column to rows
         for(int i=0;i<rows;i++)
         {
             for(int j=i;j<cols;j++)

@@ -5,6 +5,10 @@ import java.util.Map;
 
 public class LRUCache {
 
+    // to store the key value pairs we are using HashMap
+    // to store the least recently used we will use doubly limnked list
+
+    //node of DLL
     public class Node
     {
         int key;
@@ -83,7 +87,6 @@ public class LRUCache {
 
             if(cache.size() == cap)
             {
-                System.out.println("ayaaa");
                 Node lru = tail.prev;
                 cache.remove(lru.key);
                 removeNode(lru);

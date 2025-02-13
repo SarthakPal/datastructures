@@ -3,6 +3,11 @@ package com.datastructures.arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// here we cannot use the logic of count inversions suppose there are 2 arrays [6, 12, 14, 15] and [3,4,8]
+// so in count inversion we are doing if 6>3 count will be increased by 4 but here we have to check is 6>2*3 ? which is not
+// so we will move the pointer to 4 but 12,14 and 15 is greater than 2*3 but this got excluded from the count.
+
 public class ReversePairs {
 
     public static void merge(int nums[], int low, int mid, int high) {
@@ -65,7 +70,8 @@ public class ReversePairs {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647};
+        //int[] nums = {2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647};
+        int[] nums = {4, 1, 2, 3, 1};
         int n = 5;
         int cnt = mergeSort(nums, 0, n - 1);
         System.out.println("The number of reverse pair is: " + cnt);

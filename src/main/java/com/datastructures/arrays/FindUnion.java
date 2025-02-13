@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+
+// The union of two arrays can be defined as the common and distinct elements in the two arrays.
+// NOTE: Elements in the union should be in ascending order.
+
 public class FindUnion {
     List<Integer> list = new LinkedList<>();
     public List<Integer> findUnion(int nums1[], int nums2[])

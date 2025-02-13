@@ -40,7 +40,7 @@ public class BoundryTraversalOfBT {
             if(!isLeaf(curr)) temp.add(curr.val);
             if(curr.right!=null)
             {
-                curr = curr.left;
+                curr = curr.right;
             }
             else
             {

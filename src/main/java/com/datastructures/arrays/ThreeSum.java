@@ -51,10 +51,15 @@ public class ThreeSum {
 
         int n = nums.length;
 
-        Set<List<Integer>> st = new HashSet<>();
+        List<List<Integer>> st = new ArrayList<>();
 
         for(int i=0;i<n-2;i++)
         {
+            // Skip duplicate elements for the first number
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
             int left = i+1;
             int right = n-1;
             while(left<right)
@@ -88,7 +93,25 @@ public class ThreeSum {
                 }
             }
         }
-        return new ArrayList<>(st);
+        return st;
+    }
+
+    public static void main(String args[])
+    {
+        int nums[] = {-1,0,1,2,-1,-4};
+        ThreeSum threeSum = new ThreeSum();
+        List<List<Integer>> res = threeSum.threeSumWithoutSet(nums);
+
+        for(int i=0;i<res.size();i++)
+        {
+            List<Integer> temp = res.get(i);
+            for(int j=0;j<temp.size();j++)
+            {
+                System.out.print(temp.get(j)+" ");
+            }
+            System.out.println();
+        }
+
     }
 
 

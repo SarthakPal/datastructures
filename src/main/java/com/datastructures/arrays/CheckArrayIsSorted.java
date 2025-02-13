@@ -42,4 +42,22 @@ public class CheckArrayIsSorted {
         return count <= 1;
     }
 
+    /*We compare consecutive pairs:
+
+        2>1? → yes, so count = 1
+        1>3? → no
+        3>4? → no
+    So far, count = 1
+    If we did not check the boundary between nums[n-1] and nums[0]:
+
+    We would stop here and see only one “drop” (where 2 > 1).
+    We might incorrectly conclude count ≤ 1
+    count≤1 ⇒ return true.
+
+    With the boundary check:
+
+    Compare nums[3] (which is 4) and nums[0] (which is 2).
+            4>2? → yes, that is another descending “wrap-around” drop.
+    So count becomes 2, and thus count > 1 ⇒ return false.*/
+
 }

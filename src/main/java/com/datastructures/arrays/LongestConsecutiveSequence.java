@@ -49,6 +49,9 @@ public class LongestConsecutiveSequence {
     // Time Complexity: O(NlogN) + O(N), N = size of the given array.
     // Reason: O(NlogN) for sorting the array. To find the longest sequence, we are using a loop that results in O(N).
     // Space Complexity: O(1), as we are not using any extra space to solve this problem.
+
+    // we will sort the array and keep checking if the current element - 1 is equal to last then increase the count
+    // otherwise keep hte count as 1 and on both the cases update the last element to current element.
     public int findLongestConsecutive(int nums[])
     {
         int n = nums.length;
@@ -72,7 +75,11 @@ public class LongestConsecutiveSequence {
         return longest;
     }
 
-    public int longesstConsecutive(int nums[])
+    // for every element we will check if it is the starting of the sequence by doing
+    // current element - 1 if it is present it is not the start if the sequence. but if it is
+    // we will start the loop and check what all next elements are present in the set and keep
+    // increasing the counter and identify the longest length of sequence.
+    public int longestConsecutiveUsingSet(int nums[])
     {
         int n = nums.length;
 

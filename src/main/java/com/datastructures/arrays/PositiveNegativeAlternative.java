@@ -67,6 +67,15 @@ public class PositiveNegativeAlternative {
      // what if positive-negatives are not equal
     // TC : O(n)
     // SC : O(n/2+n/2) = O(n)
+
+    // first we will store positives and negatives in a separate list
+    // and which ever list is small first we will store it and then store the remaining elements of the other list
+    // to insert the elements we will start loop from 0 to smallest list size - 1
+    // and the index will be 2*i and 2*i+1 i.e. we will place elements at (0,1) (2,3) (4,5) like this
+    // once the loop ends we will calculate the index to place the rest of the elements and
+    // index will be size of the smallest list multiply by 2 because we have inserted both positive and negative elements so count is double
+    // now again the loop starts from the smallest size list and goes till largest list size
+    // and we will insert the remaining elements.
     public int[] rearrangeThree(int nums[])
     {
         int n = nums.length;

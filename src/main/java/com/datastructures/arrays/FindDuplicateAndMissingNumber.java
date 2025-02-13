@@ -2,6 +2,13 @@ package com.datastructures.arrays;
 
 public class FindDuplicateAndMissingNumber {
 
+    /*Example 1:
+    Input Format :  array[] = {3,1,2,5,3}
+    Result : {3,4)
+
+    Explanation : A = 3 , B = 4
+    Since 3 is appearing twice and 4 is missing*/
+
     public static void findDuplicateAndMissing(int nums[])
     {
         int n = nums.length;
