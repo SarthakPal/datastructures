@@ -20,7 +20,8 @@ import java.util.Stack;
 }*/
 
 // Height of BT is max no of levels including root node.
-// Diameter of BT is max of sum of ( leftHeight+rightHeight ) from all the nodes
+// Diameter of BT is the maximum number of edges between any two nodes in the tree.
+// Note that this path may or may not pass through the root. max of sum of ( leftHeight+rightHeight ) from all the nodes
 public class DiameterOfBinaryTree {
 
     public int height(TreeNode root, int[] diameter)

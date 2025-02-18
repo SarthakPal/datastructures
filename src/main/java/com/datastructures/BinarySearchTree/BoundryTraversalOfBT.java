@@ -5,6 +5,13 @@ import java.util.List;
 
 public class BoundryTraversalOfBT {
 
+//                                        1
+//                                       / \
+//                                      2   3
+//                                     / \ / \
+//                                    4   5   6
+
+// Boundry Traversal : 1, 2, 4, 5, 6, 3
     public boolean isLeaf(TreeNode node)
     {
         return node.left!=null && node.right!=null;

@@ -28,11 +28,11 @@ public class FlattenBinaryTree {
 //                                                   7
 
 
-// first we will call flatten with node 1 it will call 5 ten 6 and 7, for 7 both right and left is null then
+// first we will call flatten with node 1 it will call 5 then 6 and 7, for 7 both right and left is null then
 // for 7 right will point to prev which is null and then left will point to null and prev will become 7 then
 // it will return to 6 so for 6 both left and right is done so 6 right will point to prev (7) and left will be null
 // now it will return to 5 its both left and right is done so 5 right will point to 6 and left will be null and
-// then prev will become 5 now control will go to 1 left which is 2 and this will call 2's right 4 for 4 both
+// then prev will become 5 now control will go to 1's left which is 2 and this will call 2's right 4 for 4 both
 // left and right are null so 4 right will point to prev (5) and left will become null and prev will become 4
 // now 2 will call its left(3) same for 3 now 3's right will point to prev (4) and prev will become 3
 // now control will return to 2 as its both left and right are done so 2's right will point to prev (3) and
