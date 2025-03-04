@@ -5,7 +5,6 @@ import java.util.List;
 
 public class RootToLeafNodes {
 
-
     public void traverse(TreeNode root, List<String> res, String s) {
         if (root == null) {
             return;
