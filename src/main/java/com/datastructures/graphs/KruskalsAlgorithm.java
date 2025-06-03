@@ -6,6 +6,7 @@ public class KruskalsAlgorithm {
 
     public List<GraphEdge> minimumSpanningTree(WeightedGraph graph)
     {
+
         PriorityQueue<GraphEdge> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(GraphEdge::getWeight));
 
         for(List<GraphEdge> edges : graph.getAdjacencyList())
