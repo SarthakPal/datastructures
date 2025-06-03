@@ -30,6 +30,7 @@ public class KruskalsAlgorithm {
                 continue;
             }
 
+
             visited.add(source);
             visited.add(destination);
 
