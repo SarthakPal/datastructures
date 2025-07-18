@@ -28,6 +28,7 @@ public class PrimsAlgorithm {
             if(inMst[edge.getDestination()])
                 continue;
 
+
             mstEdges.add(edge);
             inMst[edge.getDestination()] = true;
 
