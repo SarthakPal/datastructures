@@ -10,33 +10,8 @@ public class DepthFirstSearch {
      * Then we will push all its unvisited neighbors onto the stack.
      * We will continue this process until the stack is empty.
      */
-    /*public void dfsIterative(Map<Integer, List<Integer>> adjacencyList, int start) {
 
-        Set<Integer> visited = new HashSet<>();
-        Stack<Integer> stack = new Stack<>();
-
-        stack.push(start);
-
-        while(!stack.isEmpty())
-        {
-            Integer currentVertex = stack.pop();
-            if(!visited.contains(currentVertex))
-            {
-                visited.add(currentVertex);
-                System.out.print(currentVertex + " ");
-
-                List<Integer> neighbors = adjacencyList.getOrDefault(currentVertex, Collections.emptyList());
-                for(int neighbor : neighbors)
-                {
-                    if(!visited.contains(neighbor))
-                    {
-                        stack.push(neighbor);
-                    }
-                }
-            }
-        }
-
-    }*/
+    Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
 
     public void dfsIterative(Map<Integer, List<Integer>> adjacencyList, int start)
     {
@@ -57,8 +32,30 @@ public class DepthFirstSearch {
                 if(!visited.contains(neighbor))
                 {
                     stack.add(neighbor);
-                    visited.add(neighbor);
                 }
+            }
+        }
+
+    }
+
+    public void dfs(int startVertex)
+    {
+        Set<Integer> visited = new HashSet<>();
+        dfsRecursive(startVertex, visited);
+    }
+
+    public void dfsRecursive(int vertex, Set<Integer> visited)
+    {
+        visited.add(vertex);
+        System.out.println(vertex+ " ");
+
+        List<Integer> neighbors = adjacencyList.getOrDefault(vertex, Collections.emptyList());
+
+        for(int neighbour : neighbors)
+        {
+            if(!visited.contains(neighbour))
+            {
+                dfsRecursive(neighbour, visited);
             }
         }
 
