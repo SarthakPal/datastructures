@@ -26,7 +26,10 @@ public class PrimsAlgorithm {
             GraphEdge edge = priorityQueue.poll();
 
             if(inMst[edge.getDestination()])
+            {
                 continue;
+            }
+
             // Add the edge to the MST
             mstEdges.add(edge);
             inMst[edge.getDestination()] = true;
@@ -35,5 +38,7 @@ public class PrimsAlgorithm {
         }
         return mstEdges;
     }
+
+
 
 }
