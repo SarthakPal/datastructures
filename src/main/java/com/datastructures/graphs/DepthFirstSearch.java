@@ -19,11 +19,11 @@ public class DepthFirstSearch {
         Stack<Integer> stack = new Stack<>();
 
         stack.add(start);
-        visited.add(start);
 
         while(!stack.isEmpty())
         {
             Integer currentVertex = stack.pop();
+            visited.add(start);
             System.out.print(currentVertex + " ");
 
             List<Integer> neighbors = adjacencyList.getOrDefault(currentVertex, Collections.emptyList());
@@ -36,6 +36,40 @@ public class DepthFirstSearch {
             }
         }
 
+    }
+
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+        // Code here
+
+        int startVertex = 0;
+        Stack<Integer> stack = new Stack<>();
+        boolean[] visited = new boolean[adj.size()];
+        ArrayList<Integer> result = new ArrayList<>();
+
+        stack.push(startVertex);
+
+        while (!stack.isEmpty()) {
+            int current = stack.pop();
+
+            // If already visited (popped duplicate), skip
+            if (visited[current]) continue;
+
+            // Now mark visited and record the node
+            visited[current] = true;
+            result.add(current);
+
+            // Push neighbors in reverse order so that the traversal
+            // follows the adjacency list order when popped.
+            List<Integer> neighbors = adj.get(current);
+            for (int i = neighbors.size() - 1; i >= 0; i--) {
+                int neigh = neighbors.get(i);
+                if (!visited[neigh]) {
+                    stack.push(neigh);
+                }
+            }
+        }
+
+        return result;
     }
 
     public void dfs(int startVertex)

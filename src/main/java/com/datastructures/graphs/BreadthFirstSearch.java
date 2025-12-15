@@ -16,11 +16,14 @@ public class BreadthFirstSearch {
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(start);
-        visited.add(start);
 
         while(!queue.isEmpty())
         {
             Integer currentVertex = queue.poll();
+
+            if(visited.contains(currentVertex)) continue;
+
+            visited.add(currentVertex);
             System.out.print(currentVertex + " ");
 
             List<Integer> neighbors = adjacencyList.getOrDefault(currentVertex, Collections.emptyList());
@@ -29,7 +32,6 @@ public class BreadthFirstSearch {
                 if(!visited.contains(neighbor))
                 {
                     queue.add(neighbor);
-                    visited.add(neighbor);
                 }
             }
         }

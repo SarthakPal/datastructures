@@ -2,19 +2,19 @@ package com.datastructures.graphs;
 
 import java.util.*;
 
-public class KruskalsAlgorithm {
+public class MinCostToConnectAllPointsUsingKruskals {
 
-    static class Edge
+    class Edge
     {
         int src;
         int destination;
-        int weight;
+        int distance;
 
-        Edge(int src, int destination, int weight)
+        Edge(int src, int destination, int distance)
         {
             this.src = src;
             this.destination = destination;
-            this.weight = weight;
+            this.distance = distance;
         }
 
     }
@@ -65,7 +65,7 @@ public class KruskalsAlgorithm {
 
             int src = currentEdge.src;
             int destination = currentEdge.destination;
-            int weight = currentEdge.weight;
+            int distance = currentEdge.distance;
 
             int parent_src = find(src);
             int parent_destination = find(destination);
@@ -73,15 +73,16 @@ public class KruskalsAlgorithm {
             if(parent_src!=parent_destination)
             {
                 union(src, destination);
-                sum+=weight;
+                sum+=distance;
             }
         }
 
         return sum;
     }
 
-    public int spanningTree(int V, int[][] edges) {
-        // code here
+    public int minCostConnectPoints(int[][] points) {
+
+        int V = points.length;
 
         parent = new int[V];
         rank = new int[V];
@@ -92,19 +93,24 @@ public class KruskalsAlgorithm {
             rank[i] = 0;
         }
 
-        PriorityQueue<Edge> pq = new PriorityQueue<>(Comparator.comparingInt(a->a.weight));
+        PriorityQueue<Edge> pq = new PriorityQueue<>(Comparator.comparingInt(a->a.distance));
 
-        for(int[] edge : edges)
+        for(int i=0;i<V;i++)
         {
-            int src = edge[0];
-            int destination = edge[1];
-            int weight = edge[2];
+            for(int j=i+1;j<V;j++)
+            {
+                int x1 = points[i][0];
+                int y1 = points[i][1];
 
-            pq.add(new Edge(src, destination, weight));
+                int x2 = points[j][0];
+                int y2 = points[j][1];
+
+                int dist = Math.abs(x1-x2) + Math.abs(y1-y2);
+
+                pq.add(new Edge(i, j, dist));
+            }
         }
 
         return kruskal(pq);
-
     }
-
 }
