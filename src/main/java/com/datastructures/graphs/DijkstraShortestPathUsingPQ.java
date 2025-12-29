@@ -69,7 +69,7 @@ public class DijkstraShortestPathUsingPQ {
                                         int destination = edge.destination;
                                         int additional_distance = edge.distance;
 
-                                        long new_distance = distance + (long) additional_distance;
+                                        long new_distance =distance + (long) additional_distance;
 
                                         if(new_distance < distanceArray[destination])
                                         {

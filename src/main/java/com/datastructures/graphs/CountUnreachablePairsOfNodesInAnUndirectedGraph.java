@@ -3,6 +3,7 @@ package com.datastructures.graphs;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/description/
 public class CountUnreachablePairsOfNodesInAnUndirectedGraph {
 
         public int find(int x, int[] parent)

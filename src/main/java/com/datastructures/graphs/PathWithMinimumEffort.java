@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+// https://leetcode.com/problems/path-with-minimum-effort/description/
 public class PathWithMinimumEffort {
 
     class Node

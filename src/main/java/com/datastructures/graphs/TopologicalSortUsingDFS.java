@@ -19,7 +19,6 @@ public class TopologicalSortUsingDFS {
         }
 
         stack.push(currentVertex);
-
     }
 
     public static ArrayList<Integer> topoSort(int vertices, int[][] edges) {
@@ -42,7 +41,6 @@ public class TopologicalSortUsingDFS {
 
         Set<Integer> visited = new HashSet<>();
         Stack<Integer> stack = new Stack<>();
-
 
         for(int i=0;i<vertices;i++)
         {
